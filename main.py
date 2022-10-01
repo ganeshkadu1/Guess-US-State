@@ -21,11 +21,8 @@ while total_state != correctly_guess:
                                     prompt=f"What's another state's name ? ").title()
 
     if answer_state == "Exit":
-        missing_state =[]
-        for state in all_states:
-            if state not in guess_list:
-                missing_state.append(state)
-        new_data = pandas.DataFrame(missing_state)
+        missing_states = [state for state in all_states if state not in guess_list]
+        new_data = pandas.DataFrame(missing_states)
         print(new_data)
         break
 
